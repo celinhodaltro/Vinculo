@@ -1,0 +1,6 @@
+@Vínculo_HostAddress = http://localhost:5187
+
+GET {{Vínculo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
