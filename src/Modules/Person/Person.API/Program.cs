@@ -1,10 +1,20 @@
-var builder = WebApplication.CreateBuilder(args);
+using DotNetEnv;
+using Person.Application.Commands;
+using Person.Infrastructure.Extensions;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
+Env.Load();
+
+builder.Services.AddInfrastructure(builder.Configuration);
+
+builder.Configuration.AddEnvironmentVariables();
 
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssembly(typeof(CreatePersonCommand).Assembly));
+
 
 
 var app = builder.Build();
