@@ -1,0 +1,10 @@
+﻿using MediatR;
+
+namespace Person.Application.Commands
+{
+    public class CreatePersonCommand : IRequest<Guid>
+    {
+        public string Name { get; set; }
+        public string Cpf { get; set; }
+    }
+}
