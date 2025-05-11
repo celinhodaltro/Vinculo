@@ -1,0 +1,36 @@
+name: CI - Vinculo
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    env:
+      DOTNET_VERSION: '9.0.x'
+
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
+
+    - name: 🧰 Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+
+    - name: 📦 Restore dependencies
+      run: dotnet restore
+
+    - name: 🛠️ Build solution
+      run: dotnet build --no-restore --configuration Release
+
+    - name: ✅ Run tests
+      run: dotnet test --no-build --verbosity normal
+
+    - name: 📤 Publish API
+      run: dotnet publish ./Vinculo.API/Vinculo.API.csproj --configuration Release --output ./out
