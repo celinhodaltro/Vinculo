@@ -22,7 +22,6 @@ namespace Person.Infrastructure.Repositories
 
         public async Task RemoveAsync(Guid Id)
         {
-
             var userToDelete = await _context.Users.FirstOrDefaultAsync(p => p.Id == Id); 
 
             _context.Users.Remove(userToDelete!);
