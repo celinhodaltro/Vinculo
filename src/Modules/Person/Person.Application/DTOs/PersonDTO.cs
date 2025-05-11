@@ -9,6 +9,6 @@ namespace Person.Application.DTOs
     public class PersonDto
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 }
