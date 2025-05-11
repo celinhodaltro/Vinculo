@@ -20,6 +20,16 @@ namespace Person.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task RemoveAsync(Guid Id)
+        {
+
+            var userToDelete = await _context.Users.FirstOrDefaultAsync(p => p.Id == Id); 
+
+            _context.Users.Remove(userToDelete!);
+            await _context.SaveChangesAsync();
+        }
+
+
         public async Task<User?> GetByIdAsync(Guid id)
         {
             return await _context.Users.FirstOrDefaultAsync(p => p.Id == id);

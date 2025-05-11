@@ -17,12 +17,6 @@ public class PersonController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpPost]
-    public async Task<IActionResult> Create(CreatePersonCommand command)
-    {
-        var id = await _mediator.Send(command);
-        return CreatedAtAction(nameof(GetById), new { id }, null);
-    }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<PersonDto>> GetById(Guid id)
@@ -33,4 +27,22 @@ public class PersonController : ControllerBase
 
         return Ok(result);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(CreatePersonCommand command)
+    {
+        var id = await _mediator.Send(command);
+        return CreatedAtAction(nameof(GetById), new { id }, null);
+    }
+
+    [HttpDelete]
+    public async Task<IActionResult> Delete(RemovePersonCommand command)
+    {
+        var isDeleted = await _mediator.Send(command);
+        if (!isDeleted)
+            return NotFound();
+        return Ok();
+    }
+
+
 }
