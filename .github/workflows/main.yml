@@ -31,6 +31,5 @@ jobs:
 
     - name: ✅ Run tests
       run: dotnet test --no-build --verbosity normal
-
     - name: 📤 Publish API
-      run: dotnet publish ./Vinculo.API/Vinculo.API.csproj --configuration Release --output ./out
+      run: dotnet publish ./src/Modules/Person/Person.API/Person.API.csproj --configuration Release --output ./out
