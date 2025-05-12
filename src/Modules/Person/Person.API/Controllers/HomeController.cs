@@ -32,7 +32,7 @@ public class PersonController : ControllerBase
     public async Task<IActionResult> Create(CreatePersonCommand command)
     {
         var id = await _mediator.Send(command);
-        return CreatedAtAction(nameof(GetById), new { id }, null);
+        return CreatedAtAction(nameof(GetById), new { id }, $"Pessoa criada com sucesso! Id: {id}");
     }
 
     [HttpDelete]
