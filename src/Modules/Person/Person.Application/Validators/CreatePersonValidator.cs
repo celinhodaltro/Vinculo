@@ -12,8 +12,13 @@ namespace Person.Application.Validators
     {
         public CreatePersonValidator()
         {
-            RuleFor(x => x.Name).NotEmpty();
-            RuleFor(x => x.Cpf).Length(11);
+            RuleFor(x => x.Name)
+                .NotEmpty()
+                .WithMessage("O nome é obrigatório.");
+
+            RuleFor(x => x.Cpf)
+                .Length(11)
+                .WithMessage("O CPF deve ter exatamente 11 dígitos.");
         }
     }
 }
