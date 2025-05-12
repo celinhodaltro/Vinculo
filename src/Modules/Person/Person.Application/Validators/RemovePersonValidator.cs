@@ -12,7 +12,9 @@ namespace Person.Application.Validators
     {
         public RemovePersonValidator()
         {
-            RuleFor(x => x.Id).NotEmpty();
+            RuleFor(x => x.Id)
+                .NotEmpty()
+                .WithMessage("O Id é obrigatorio para identificar o objeto!");
         }
     }
 }
