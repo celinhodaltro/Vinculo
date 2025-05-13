@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "default",
+    "Projects": [
+      {
+        "Path": "src\\Modules\\Person\\Person.API\\Person.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "src\\Modules\\Auth\\Auth.API\\Auth.API.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
