@@ -20,7 +20,6 @@ namespace Person.Application.Handlers
             var person = new User(request.Name, new Cpf(request.Cpf));
             await _repo.AddAsync(person);
             return person.Id;
-
         }
     }
 
