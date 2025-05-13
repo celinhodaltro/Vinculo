@@ -361,4 +361,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/src/Modules/Person/Person.Infrastructure/Migrations/
+/src/Modules/Person/Vinculo.Infrastructure/Migrations/

@@ -6,42 +6,43 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Auth.Infrastructure.Services;
 
 public class AuthService : IAuthService
 {
-    private readonly List<User> _users = new(); // Simulação (substitua com banco de dados)
     private readonly IConfiguration _config;
+    private readonly IAuthRepository _authRepository;
     private readonly PasswordHasher<User> _hasher = new();
 
-    public AuthService(IConfiguration config)
+    public AuthService(IConfiguration config, IAuthRepository authRepository)
     {
         _config = config;
+        _authRepository = authRepository;
     }
 
-    public Task<bool> RegisterAsync(string username, string password)
+    public async Task<bool> RegisterAsync(string username, string password)
     {
-        if (_users.Any(u => u.Username == username))
-            return Task.FromResult(false);
+        var exists = await _authRepository.ExistsAsync(username);
+        if (exists) return false;
 
         var user = new User { Username = username };
         user.PasswordHash = _hasher.HashPassword(user, password);
-        _users.Add(user);
 
-        return Task.FromResult(true);
+        await _authRepository.AddUserAsync(user);
+        return true;
     }
 
-    public Task<string?> AuthenticateAsync(string username, string password)
+    public async Task<string?> AuthenticateAsync(string username, string password)
     {
-        var user = _users.SingleOrDefault(u => u.Username == username);
-        if (user == null) return Task.FromResult<string?>(null);
+        var user = await _authRepository.GetByEmailAsync(username);
+        if (user == null) return null;
 
         var result = _hasher.VerifyHashedPassword(user, user.PasswordHash, password);
-        if (result == PasswordVerificationResult.Failed) return Task.FromResult<string?>(null);
+        if (result == PasswordVerificationResult.Failed) return null;
 
-        var token = GenerateJwtToken(user);
-        return Task.FromResult<string?>(token);
+        return GenerateJwtToken(user);
     }
 
     private string GenerateJwtToken(User user)

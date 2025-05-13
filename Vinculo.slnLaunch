@@ -3,7 +3,7 @@
     "Name": "default",
     "Projects": [
       {
-        "Path": "src\\Modules\\Person\\Person.API\\Person.API.csproj",
+        "Path": "src\\Modules\\Person\\Person.API\\Vinculo.API.csproj",
         "Action": "Start"
       },
       {

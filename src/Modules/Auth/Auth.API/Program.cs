@@ -1,10 +1,19 @@
 using Auth.Application.Interfaces;
 using Auth.Infrastructure.Services;
+using Core.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString();
+
+builder.Services.AddDbContext<AuthDbContext>(options =>
+    options.UseNpgsql(connectionString));
+
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
 // Configuração JWT
 var jwtKey = builder.Configuration["Jwt:Key"];
