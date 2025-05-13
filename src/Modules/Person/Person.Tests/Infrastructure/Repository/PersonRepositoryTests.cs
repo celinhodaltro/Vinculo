@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Person.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
+using FluentAssertions;
 
 namespace Person.Tests.Infrastructure
 {
