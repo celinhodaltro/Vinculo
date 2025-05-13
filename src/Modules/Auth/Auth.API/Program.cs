@@ -5,17 +5,17 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Vinculo.Infrastructure.Persistence;
+using Vinculo.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString();
 
-builder.Services.AddDbContext<AuthDbContext>(options =>
-    options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<AuthDbContext>(options => options.UseNpgsql(connectionString));
 
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
-// Configuração JWT
 var jwtKey = builder.Configuration["Jwt:Key"];
 var jwtIssuer = builder.Configuration["Jwt:Issuer"];
 var jwtAudience = builder.Configuration["Jwt:Audience"];
@@ -35,7 +35,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// DI
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddControllers();
