@@ -1,11 +1,6 @@
 ﻿using Vinculo.Domain.Entities;
 using Vinculo.Infrastructure.Persistence;
 using Vinculo.Infrastructure.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Vinculo.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using FluentAssertions;
