@@ -31,7 +31,7 @@ namespace Vinculo.Tests.Infrastructure
         public async Task AddAsync_ShouldAddPersonToDatabase()
         {
             // Arrange
-            var person = new Vinculo.Person("Ana", new Cpf("000.000.000-00"), 22);
+            var person = new Person("Ana", new Cpf("000.000.000-00"), 22);
 
             // Act
             await _repository.AddAsync(person);
