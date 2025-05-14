@@ -17,9 +17,9 @@ namespace Vinculo.Application.Handlers
 
         public async Task<Guid> Handle(CreatePersonCommand request, CancellationToken ct)
         {
-            var person = new User(request.Name, new Cpf(request.Cpf));
+            var person = new Person(request.Name, new Cpf(request.Cpf), request.Age);
             await _repo.AddAsync(person);
-            return Vinculo.Id;
+            return person.Id;
         }
     }
 
