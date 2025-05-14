@@ -3,11 +3,15 @@
     "Name": "default",
     "Projects": [
       {
-        "Path": "src\\Modules\\Person\\Person.API\\Vinculo.API.csproj",
+        "Path": "src\\Modules\\Auth\\Auth.API\\Auth.API.csproj",
         "Action": "Start"
       },
       {
-        "Path": "src\\Modules\\Auth\\Auth.API\\Auth.API.csproj",
+        "Path": "src\\Modules\\Vinculo\\Vinculo.API\\Vinculo.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "src\\Modules\\Vinculo\\Vinculo.Tests\\Vinculo.Tests.csproj",
         "Action": "Start"
       }
     ]
