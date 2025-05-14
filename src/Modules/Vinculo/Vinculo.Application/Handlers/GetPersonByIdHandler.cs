@@ -22,8 +22,8 @@ public class GetPersonByIdHandler : IRequestHandler<GetPersonByIdQuery, PersonDt
 
         return new PersonDto
         {
-            Id = Vinculo.Id,
-            Name = Vinculo.Name
+            Id = person.Id,
+            Name = person.Name
         };
     }
 }
