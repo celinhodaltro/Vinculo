@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Vinculo.Application.Commands;
 using Vinculo.Application.DTOs;
@@ -7,6 +8,7 @@ using Vinculo.Application.Queries;
 namespace Vinculo.API.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 public class PersonController : ControllerBase
 {
