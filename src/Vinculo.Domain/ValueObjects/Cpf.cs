@@ -14,6 +14,7 @@ public class Cpf
 
     private bool IsValid(string cpf)
     {
+        cpf.Replace("-", "").Replace(".", "").Replace(" ", "");
         return !string.IsNullOrWhiteSpace(cpf) && cpf.Length == 11;
     }
 
