@@ -15,7 +15,7 @@ namespace Vinculo.Tests.Application.Handlers
             // Arrange
             var mockRepo = new Mock<IPersonRepository>();
             var handler = new CreatePersonHandler(mockRepo.Object);
-            var command = new CreatePersonCommand { Name = "João", Age = 30 };
+            var command = new CreatePersonCommand { Name = "João", Age = 30, Cpf = new("000.000.000-00") };
 
             // Act
             var result = await handler.Handle(command, CancellationToken.None);

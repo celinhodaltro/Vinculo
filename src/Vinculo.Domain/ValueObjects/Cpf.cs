@@ -14,8 +14,12 @@ public class Cpf
 
     private bool IsValid(string cpf)
     {
-        cpf.Replace("-", "").Replace(".", "").Replace(" ", "");
-        return !string.IsNullOrWhiteSpace(cpf) && cpf.Length == 11;
+        if (string.IsNullOrWhiteSpace(cpf))
+            return false;
+
+        var cpfWithOutAccentuations = cpf.Replace("-", "").Replace(".", "").Replace(" ", "");
+
+        return !string.IsNullOrWhiteSpace(cpfWithOutAccentuations) && cpfWithOutAccentuations.Length == 11;
     }
 
     public override string ToString() => Value;
