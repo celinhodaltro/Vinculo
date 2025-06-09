@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Core.Domain\Core.Domain.csproj" />
     <ProjectReference Include="..\Vinculo.Domain\Vinculo.Domain.csproj" />
   </ItemGroup>
 

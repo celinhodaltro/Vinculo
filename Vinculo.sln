@@ -5,10 +5,6 @@ VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{0337927D-4AE0-44E5-91AC-39EE45E26307}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vinculo.Docs", "docs\Vinculo.Docs\Vinculo.Docs.csproj", "{7BCF2131-2757-408D-9603-0ADD8894370B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "git", "git", "{380A7511-A354-6D7A-0CC0-8FA1F1BA7B6C}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
@@ -31,10 +27,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7BCF2131-2757-408D-9603-0ADD8894370B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BCF2131-2757-408D-9603-0ADD8894370B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BCF2131-2757-408D-9603-0ADD8894370B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BCF2131-2757-408D-9603-0ADD8894370B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3DF23566-EB7E-7AED-EBA5-C6C0382B371E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3DF23566-EB7E-7AED-EBA5-C6C0382B371E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DF23566-EB7E-7AED-EBA5-C6C0382B371E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -60,7 +52,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{7BCF2131-2757-408D-9603-0ADD8894370B} = {0337927D-4AE0-44E5-91AC-39EE45E26307}
 		{3DF23566-EB7E-7AED-EBA5-C6C0382B371E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{9CE967F4-A7FF-8268-04D2-C346C757AFBC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{21F3DEC5-D5E7-5B69-ECDE-A66E5A50B882} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}

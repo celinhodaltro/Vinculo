@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Core.Infrastructure\Core.Infrastructure.csproj" />
     <ProjectReference Include="..\Vinculo.Application\Vinculo.Application.csproj" />
     <ProjectReference Include="..\Vinculo.Infrastructure\Vinculo.Infrastructure.csproj" />
   </ItemGroup>
